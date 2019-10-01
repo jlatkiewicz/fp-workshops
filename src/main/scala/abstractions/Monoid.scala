@@ -13,9 +13,9 @@ object Monoid {
     def op(s1: String, s2: String): String = s1 + s2
   }
 
-  implicit val additionMonoid: Monoid[Int] = ???
+  implicit val additionMonoid: Monoid[Int] = null
 
-  implicit def listMonoid[A]: Monoid[List[A]] = ???
+  implicit def listMonoid[A]: Monoid[List[A]] = null
 
   implicit class MonoidOps[A: Monoid](a1: A) {
     def op(a2: A): A = Monoid[A].op(a1, a2)
