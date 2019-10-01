@@ -2,7 +2,7 @@ package basics
 
 object Composition {
   //ex. 1 implement curry
-  def curry[A, B, C](f: (A, B) => C): A => (B => C) = ???
+  def curry[A, B, C](f: (A, B) => C): A => B => C = ???
 
   //ex. 2 implement uncurry
   def uncurry[A, B, C](f: A => B => C): (A, B) => C = ???
