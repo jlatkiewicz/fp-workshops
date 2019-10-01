@@ -36,7 +36,10 @@ object List {
 
   //ex. 6 look at the sum and product functions, then implement foldRight.
   // After that implement sum and product in terms of foldRight
-  def foldRight[A,B](as: List[A], z: B)(f: (A, B) => B): B = ???
+  def foldRight[A,B](as: List[A], z: B)(f: (A, B) => B): B = as match {
+    case Nil => ???
+    case Cons(x, xs) => ???
+  }
 
   //ex. 7 compute length of a list using foldRight
   def length[A](as: List[A]): Int = ???
@@ -44,7 +47,7 @@ object List {
   //thought experiment - see what happens when you do this foldRight(List(1,2,3), Nil:List[Int])(Cons(_,_))
   //what do you think about relationship between foldRight and List data constructor?
 
-  //ex. 8 your foldRight is probably NOT tail-recursive and can result in stack-overflow
+  //ex. 8 foldRight is NOT tail-recursive and can result in stack-overflow
   //implement foldLeft in tail-recursive way
   def foldLeft[A,B](as: List[A], z: B)(f: (B, A) => B): B = ???
 
