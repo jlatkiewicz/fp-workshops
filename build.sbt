@@ -1,4 +1,4 @@
-name := "scala-fp-short-workshops"
+name := "fp-workshops"
 
 version := "0.1"
 
