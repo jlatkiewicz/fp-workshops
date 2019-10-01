@@ -31,8 +31,8 @@ object List {
   //ex. 4 implement dropWhile, switch drop implementation to use dropWhile
   def dropWhile[A](l: List[A], f: A => Boolean): List[A] = ???
 
-  //ex. 5 what is the difference between above dropWhile and below
-  def dropWhile[A](as: List[A])(f: A => Boolean): List[A] = ???
+  //ex. 5 what is the difference between above dropWhile and below?
+  def dropWhile2[A](as: List[A])(f: A => Boolean): List[A] = ???
 
   //ex. 6 look at the sum and product functions, then implement foldRight.
   // After that implement sum and product in terms of foldRight
