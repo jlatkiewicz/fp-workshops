@@ -1,5 +1,7 @@
 package basics
 
+import abstractions.Main
+
 sealed trait List[+A]
 case object Nil extends List[Nothing]
 case class Cons[+A](head: A, tail: List[A]) extends List[A]
@@ -28,7 +30,7 @@ object List {
   //ex. 3 implement drop and switch tail implementation to use drop
   def drop[A](l: List[A], n: Int): List[A] = ???
 
-  //ex. 4 implement dropWhile, switch drop implementation to use dropWhile
+  //ex. 4 implement dropWhile, hard: switch drop implementation to use dropWhile
   def dropWhile[A](l: List[A], f: A => Boolean): List[A] = ???
 
   //ex. 5 what is the difference between above dropWhile and below?
@@ -55,7 +57,7 @@ object List {
 
   //ex. 10 write a function that reverses a list using either of the two folds
 
-  //ex. 11 write foldRight in terms of foldLeft
+  //ex. 11 Hard: write foldRight in terms of foldLeft
 
   //ex. 12 Implement append in terms of either foldLeft or foldRight.
 
@@ -63,4 +65,29 @@ object List {
   // Its runtime should be linear in the total length of all lists.
   // Try to use functions we have already defined.
 
+  //ex. 14 Write a function that transforms a list of integers by adding 1 to each element.
+  // (Reminder: this should be a pure function that returns a new List!)
+
+  //ex. 15 Write a function that turns each value in a List[Double] into a String.
+  // You can use the expression d.toString to convert some d: Double to a String.
+
+  //ex. 16 Write map, switch above two functions to use map
+  def map[A,B](as: List[A])(f: A => B): List[B] = ???
+
+  //ex. 17 write filter
+  def filter[A](as: List[A])(f: A => Boolean): List[A] = ???
+
+  //ex. 18 write flatMap
+  def flatMap[A,B](as: List[A])(f: A => List[B]): List[B] = ???
+
+  //ex. 19 switch filter implementation to use flatMap
+
+  //ex. 20 Write a function that accepts two lists and constructs a new list by adding corresponding elements.
+  // For example, List(1,2,3) and List(4,5,6) become List(5,7,9).
+
+  //ex. 21 Generalize the function you just wrote so that it’s not specific to integers or addition. Name your generalized function zipWith.
+
+  //ex. 21 Hard: Implement hasSubsequence for checking whether a List contains another List as a subsequence.
+  // For instance, List(1,2,3,4) would have List(1,2), List(2,3), and List(4) as subsequences, among others.
+  def hasSubsequence[A](sup: List[A], sub: List[A]): Boolean = ???
 }
