@@ -4,10 +4,11 @@ package errorhandling
 //to keep referential transparency let's not use exceptions and try to handle error in a different, functional way
 //introducing - Option. It will return Some(result) for operation that succeeds and None for operation that fails
 sealed trait Option[+A] {
-  //for ex. 1
+  //for ex. 1, use pattern matching
   def map[B](f: A => B): Option[B] = ???
-  def flatMap[B](f: A => Option[B]): Option[B] = ???
   def getOrElse[B >: A](default: => B): B = ???
+  //for ex. 1, do not use pattern matching
+  def flatMap[B](f: A => Option[B]): Option[B] = ???
   def orElse[B >: A](ob: => Option[B]): Option[B] = ???
   def filter(f: A => Boolean): Option[A] = ???
 }
