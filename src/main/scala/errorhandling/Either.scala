@@ -33,4 +33,23 @@ object Either {
   //ex. 2 implement sequence and traverse for Either, sequence implementation should use traverse
   def sequence[E, A](es: List[Either[E, A]]): Either[E, List[A]] = ???
   def traverse[E, A, B](as: List[A])(f: A => Either[E, B]): Either[E, List[B]] = ???
+
+
+  //example usage
+
+  case class Person(name: Name, age: Age)
+  sealed class Name(val value: String)
+  sealed class Age(val value: Int)
+
+  def mkName(name: String): Either[String, Name] =
+    if (name == "" || name == null) Left("Name is empty.") else Right(new Name(name))
+  def mkAge(age: Int): Either[String, Age] = if (age < 0) Left("Age is out of range.") else Right(new Age(age))
+  def mkPerson(name: String, age: Int): Either[String, Person] = mkName(name).map2(mkAge(age))(Person)
+
+
+  //ex. 3 optional, design question
+  //using this implementation map2 is only able to report one error, even if both age and name are invalid.
+  //What would need to change to be able to report both errors? Would the change be in map2 or in mkPerson?
+  //Or maybe an entirely new data structure that captures this requirement better than Either?
+  //How would orElse, traverse and sequence behave differently for that data structure?
 }

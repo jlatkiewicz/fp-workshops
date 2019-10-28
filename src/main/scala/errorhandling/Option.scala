@@ -16,7 +16,6 @@ sealed trait Option[+A] {
 case class Some[+A](get: A) extends Option[A]
 case object None extends Option[Nothing]
 
-
 // ex. 1 implement the above functions
 // do not use pattern matching in any except map and getOrElse
 // getOrElse returns the result inside the Some case of the Option, or if the Option is None, returns the given default value.
@@ -27,7 +26,6 @@ object Option {
   def Try[A](a: => A): Option[A] =
   try Some(a)
   catch { case _: Exception => None }
-
 
   // ex. 2 Implement the variance function in terms of flatMap.
   // If the mean of a sequence is m, the variance is the mean of math.pow(x - m, 2) for each element x in the sequence.
